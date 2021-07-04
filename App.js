@@ -19,7 +19,11 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Authenticate" component={Authenticate} />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ gestureEnabled: false }}
+        />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
