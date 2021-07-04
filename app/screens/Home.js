@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 15,
     fontWeight: "500",
+    paddingHorizontal: 20,
   },
   financeWidget: {
     marginTop: 14,
