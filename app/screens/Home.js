@@ -120,7 +120,7 @@ const Home = ({ navigation }) => {
               horizontal={true}
               keyExtractor={(item) => item.title}
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ paddingHorizontal: 20 }}
+              contentContainerStyle={{ paddingRight: 20 }}
             />
           </View>
 
@@ -218,6 +218,6 @@ const styles = StyleSheet.create({
   },
   financeWidget: {
     marginTop: 14,
-    maxHeight: 100,
+    // maxHeight: 100,
   },
 });
