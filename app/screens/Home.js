@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -14,6 +15,9 @@ import { COLORS } from "../../assets/colors/colors";
 
 import Cards from "../components/Home/Cards";
 import Widgets from "../components/Home/Widgets";
+import Loans from "../components/Home/Loans";
+import Investments from "../components/Home/Investments";
+import Tabbar from "../components/Tabbar";
 
 const CARDS_DATA = [
   {
@@ -59,63 +63,76 @@ const FINANCE_WIDGETS = [
   },
 ];
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image
-          style={styles.headerLogo}
-          source={require("../../assets/images/logo-2.png")}
-        />
-        <TouchableOpacity style={styles.headerOptions}>
-          <Image
-            style={styles.headerOptionsIcon}
-            source={require("../../assets/images/profile-image.png")}
-          />
-        </TouchableOpacity>
-      </View>
-
-      {/* Balance */}
-      <View style={styles.balanceWrapper}>
-        <Text style={styles.balanceText}>Your balance</Text>
-        <View style={styles.balanceRow}>
-          <Text style={styles.totalBalanceText}>$ 7,896.31</Text>
-          <TouchableOpacity style={styles.searchWrapper}>
-            <Icon
-              styles={styles.searchIcon}
-              name="magnify"
-              size={28}
-              color={COLORS.white}
+    <View style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView>
+          {/* Header */}
+          <View style={styles.header}>
+            <Image
+              style={styles.headerLogo}
+              source={require("../../assets/images/logo-2.png")}
             />
-          </TouchableOpacity>
-        </View>
-      </View>
+            <TouchableOpacity style={styles.headerOptions}>
+              <Image
+                style={styles.headerOptionsIcon}
+                source={require("../../assets/images/profile-image.png")}
+              />
+            </TouchableOpacity>
+          </View>
 
-      {/* Cards */}
-      <FlatList
-        style={styles.cardsWrapper}
-        data={CARDS_DATA}
-        renderItem={Cards}
-        horizontal={true}
-        keyExtractor={(item) => item.lastFourDigits}
-        showsHorizontalScrollIndicator={false}
-      />
+          {/* Balance */}
+          <View style={styles.balanceWrapper}>
+            <Text style={styles.balanceText}>Your balance</Text>
+            <View style={styles.balanceRow}>
+              <Text style={styles.totalBalanceText}>$ 7,896.31</Text>
+              <TouchableOpacity style={styles.searchWrapper}>
+                <Icon
+                  styles={styles.searchIcon}
+                  name="magnify"
+                  size={28}
+                  color={COLORS.white}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
 
-      {/* Finance Widgets */}
-      <View style={styles.financeWrapper}>
-        <Text style={styles.financeTitle}>Finance</Text>
+          {/* Cards */}
+          <FlatList
+            style={styles.cardsWrapper}
+            data={CARDS_DATA}
+            renderItem={Cards}
+            horizontal={true}
+            keyExtractor={(item) => item.lastFourDigits}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingRight: 20 }}
+          />
 
-        <FlatList
-          style={styles.financeWidget}
-          data={FINANCE_WIDGETS}
-          renderItem={Widgets}
-          horizontal={true}
-          keyExtractor={(item) => item.title}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-    </SafeAreaView>
+          {/* Finance Widgets */}
+          <View style={styles.financeWrapper}>
+            <Text style={styles.financeTitle}>Finance</Text>
+
+            <FlatList
+              style={styles.financeWidget}
+              data={FINANCE_WIDGETS}
+              renderItem={Widgets}
+              horizontal={true}
+              keyExtractor={(item) => item.title}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingHorizontal: 20 }}
+            />
+          </View>
+
+          {/* Loans */}
+          <Loans />
+
+          {/* Investments */}
+          <Investments />
+        </ScrollView>
+      </SafeAreaView>
+      <Tabbar navigation={navigation} />
+    </View>
   );
 };
 
@@ -125,6 +142,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1E2121",
+    maxHeight: "100%",
   },
   header: {
     flexDirection: "row",
@@ -188,10 +206,10 @@ const styles = StyleSheet.create({
   cardsWrapper: {
     marginTop: 24,
     maxHeight: 170,
+    minHeight: 170,
   },
   financeWrapper: {
-    paddingHorizontal: 20,
-    marginTop: 40,
+    marginTop: 10,
   },
   financeTitle: {
     color: COLORS.white,
