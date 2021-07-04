@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { COLORS } from "../../assets/colors/colors";
@@ -53,7 +59,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    height: 80,
+    height: 70,
     backgroundColor: "#353535",
+    paddingBottom: Platform.OS === "android" ? 0 : 10,
   },
 });
