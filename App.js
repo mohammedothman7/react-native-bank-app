@@ -6,10 +6,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from "./app/screens/Home";
 import Authenticate from "./app/screens/Authenticate";
+import Card from "./app/screens/Card";
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App({ navigation }) {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -24,6 +25,7 @@ export default function App() {
           component={Home}
           options={{ gestureEnabled: false }}
         />
+        <Stack.Screen name="Card" component={Card} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
