@@ -40,8 +40,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     ...Platform.select({
       ios: {
-        shadowColor: "rgba(0, 0, 0, 0.25)",
-        shadowOpacity: 4,
+        shadowColor: "black",
+        shadowOffset: {
+          width: 4,
+          height: 4,
+        },
+        shadowOpacity: 0.5,
         shadowRadius: 4,
       },
       android: {
