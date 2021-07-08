@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./app/screens/Home";
 import Authenticate from "./app/screens/Authenticate";
 import Card from "./app/screens/Card";
+import Budget from "./app/screens/Budget";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ export default function App({ navigation }) {
           options={{ gestureEnabled: false }}
         />
         <Stack.Screen name="Card" component={Card} />
+        <Stack.Screen name="Budget" component={Budget} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
