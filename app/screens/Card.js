@@ -209,7 +209,6 @@ const Card = ({ navigation }) => {
           <View style={styles.transactionsHeader}>
             <Text style={styles.transactionsHeaderTitle}>Transactions</Text>
           </View>
-          {console.log(cardIndex)}
           {ACCOUNTS_DATA[cardIndex].map((item, index) => (
             <TransactionsHelper date={item.date} data={item.data} key={index} />
           ))}
