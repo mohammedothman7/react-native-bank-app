@@ -27,11 +27,11 @@ const Tabbar = ({ navigation }) => {
           color={activeTab === "Home" ? COLORS.yellow : COLORS.white}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles} onPress={() => handlePress("Store")}>
+      <TouchableOpacity style={styles} onPress={() => handlePress("Budget")}>
         <Icon
           name="basket-outline"
           size={40}
-          color={activeTab === "Store" ? COLORS.yellow : COLORS.white}
+          color={activeTab === "Budget" ? COLORS.yellow : COLORS.white}
         />
       </TouchableOpacity>
       <TouchableOpacity style={styles} onPress={() => handlePress("Card")}>
