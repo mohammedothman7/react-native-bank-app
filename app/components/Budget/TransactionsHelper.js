@@ -4,8 +4,6 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { COLORS } from "../../../assets/colors/colors";
 
 const TransactionsHelper = ({ data }) => {
-  console.log(data);
-
   return (
     <View>
       <View style={{ paddingHorizontal: 20 }}>
