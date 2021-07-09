@@ -24,7 +24,6 @@ const Messages = ({ data }) => {
     resizeMode,
   } = data;
 
-  console.log(backgroundColorEnd);
   return (
     <TouchableOpacity style={styles.messagesRow}>
       <LinearGradient
