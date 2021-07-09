@@ -86,7 +86,7 @@ const Home = ({ navigation }) => {
           <View style={styles.balanceWrapper}>
             <Text style={styles.balanceText}>Your balance</Text>
             <View style={styles.balanceRow}>
-              <Text style={styles.totalBalanceText}>$ 7,896.31</Text>
+              <Text style={styles.totalBalanceText}>$ 7,896</Text>
               <TouchableOpacity style={styles.searchWrapper}>
                 <Icon
                   styles={styles.searchIcon}
