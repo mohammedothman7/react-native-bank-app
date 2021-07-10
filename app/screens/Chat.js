@@ -17,7 +17,6 @@ import { COLORS } from "../../assets/colors/colors";
 import Tags from "../components/Chat/Tags";
 import Widgets from "../components/Home/Widgets";
 import Messages from "../components/Chat/Messages";
-import Tabbar from "../components/Tabbar";
 
 const TAGS = [
   {
@@ -198,7 +197,6 @@ const Chat = ({ navigation }) => {
           ))}
         </ScrollView>
       </SafeAreaView>
-      <Tabbar navigation={navigation} />
     </View>
   );
 };

@@ -17,7 +17,6 @@ import Cards from "../components/Home/Cards";
 import Widgets from "../components/Home/Widgets";
 import Loans from "../components/Home/Loans";
 import Investments from "../components/Home/Investments";
-import Tabbar from "../components/Tabbar";
 
 const CARDS_DATA = [
   {
@@ -131,7 +130,6 @@ const Home = ({ navigation }) => {
           <Investments />
         </ScrollView>
       </SafeAreaView>
-      <Tabbar navigation={navigation} />
     </View>
   );
 };
