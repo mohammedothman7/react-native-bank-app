@@ -90,7 +90,7 @@ const MESSAGES = [
     backgroundColorEnd: "#CA7F8D",
   },
   {
-    name: "Maya",
+    name: "Maya 💫",
     subtext: "Thanks for letting me use your netflix account",
     date: "July 3",
     read: true,
@@ -99,7 +99,7 @@ const MESSAGES = [
     backgroundColorEnd: "#E8C898",
   },
   {
-    name: "Alice",
+    name: "Alice 🌸",
     subtext: "Happy birthday!",
     date: "May 17",
     read: true,
@@ -185,7 +185,16 @@ const Chat = ({ navigation }) => {
           <Text style={styles.messagesTitle}>Messages</Text>
 
           {MESSAGES.map((item, index) => (
-            <Messages data={item} key={index} />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ChatView", {
+                  item,
+                })
+              }
+              key={index}
+            >
+              <Messages data={item} />
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </SafeAreaView>

@@ -25,7 +25,7 @@ const Messages = ({ data }) => {
   } = data;
 
   return (
-    <TouchableOpacity style={styles.messagesRow}>
+    <View style={styles.messagesRow}>
       <LinearGradient
         style={[styles.messageRowImage]}
         colors={[backgroundColorStart, backgroundColorEnd]}
@@ -60,7 +60,7 @@ const Messages = ({ data }) => {
           </Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
