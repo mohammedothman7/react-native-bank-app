@@ -55,7 +55,7 @@ const Budget = ({ navigation }) => {
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.previousPage}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("Home")}
           >
             <Icon name="chevron-left" size={32} color={COLORS.white} />
           </TouchableOpacity>
@@ -65,77 +65,91 @@ const Budget = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* Budget */}
-        <View style={styles.budget}>
-          <View style={styles.budgetRow}>
-            <View>
-              <Text style={styles.budgetAmount}>$1,345</Text>
-              <Text style={styles.budgetText}>September prediction $2,010</Text>
+        <ScrollView>
+          <SafeAreaView>
+            {/* Budget */}
+            <View style={styles.budget}>
+              <View style={styles.budgetRow}>
+                <View>
+                  <Text style={styles.budgetAmount}>$1,345</Text>
+                  <Text style={styles.budgetText}>
+                    September prediction $2,010
+                  </Text>
+                </View>
+                <Text style={styles.budgetText}>July 2021</Text>
+              </View>
             </View>
-            <Text style={styles.budgetText}>July 2021</Text>
-          </View>
-        </View>
 
-        {/* Charts */}
-        <View style={{ justifyContent: "center" }}>
-          <LineChart
-            data={{
-              labels: ["January", "February", "March", "April", "May", "June"],
-              datasets: [
-                {
-                  data: [
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
-                    Math.random() * 100,
+            {/* Charts */}
+            <View style={{ justifyContent: "center" }}>
+              <LineChart
+                data={{
+                  labels: [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
                   ],
-                },
-              ],
-            }}
-            width={Dimensions.get("window").width + 70} // from react-native
-            height={250}
-            bezier
-            withHorizontalLabels={false}
-            withHorizontalLines={false}
-            chartConfig={{
-              backgroundColor: "#1E2121",
-              backgroundGradientFrom: "#1E2121",
-              backgroundGradientTo: "#1E2121",
-              color: (opacity = 1) => COLORS.mint,
-              labelColor: (opacity = 1) => COLORS.mint,
-              style: {
-                borderRadius: 16,
-              },
-              propsForDots: {
-                r: "6",
-                strokeWidth: "2",
-                stroke: COLORS.white,
-              },
-              propsForBackgroundLines: {
-                stroke: "gray",
-                r: "6",
-                strokeWidth: "1",
-              },
-            }}
-            bezier
-            style={{
-              marginTop: 30,
-              marginBottom: 35,
-              borderRadius: 16,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
-        </View>
+                  datasets: [
+                    {
+                      data: [
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                      ],
+                    },
+                  ],
+                }}
+                width={Dimensions.get("window").width + 70} // from react-native
+                height={250}
+                bezier
+                withHorizontalLabels={false}
+                withHorizontalLines={false}
+                chartConfig={{
+                  backgroundColor: "#1E2121",
+                  backgroundGradientFrom: "#1E2121",
+                  backgroundGradientTo: "#1E2121",
+                  color: (opacity = 1) => COLORS.mint,
+                  labelColor: (opacity = 1) => COLORS.mint,
+                  style: {
+                    borderRadius: 16,
+                  },
+                  propsForDots: {
+                    r: "6",
+                    strokeWidth: "2",
+                    stroke: COLORS.white,
+                  },
+                  propsForBackgroundLines: {
+                    stroke: "gray",
+                    r: "6",
+                    strokeWidth: "1",
+                  },
+                }}
+                bezier
+                style={{
+                  marginTop: 30,
+                  marginBottom: 35,
+                  borderRadius: 16,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              />
+            </View>
+          </SafeAreaView>
+
+          <View style={styles.transactions}>
+            {/* Transactions */}
+            {TRANSACTIONS.map((item, index) => (
+              <TransactionsHelper data={item} key={index} />
+            ))}
+          </View>
+        </ScrollView>
       </SafeAreaView>
-      {/* Transactions */}
-      <ScrollView style={styles.transactions}>
-        {TRANSACTIONS.map((item, index) => (
-          <TransactionsHelper data={item} key={index} />
-        ))}
-      </ScrollView>
     </View>
   );
 };
@@ -161,6 +175,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingTop: 5,
+    paddingBottom: 15,
   },
   headerText: {
     color: COLORS.white,
@@ -176,7 +191,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
   },
   budget: {
-    marginTop: 24,
+    marginTop: 10,
     marginHorizontal: 20,
     paddingVertical: 20,
     backgroundColor: COLORS.grayPrimary,
@@ -200,6 +215,8 @@ const styles = StyleSheet.create({
   transactions: {
     backgroundColor: COLORS.grayPrimary,
     height: "100%",
-    borderRadius: 40,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    paddingBottom: 50,
   },
 });

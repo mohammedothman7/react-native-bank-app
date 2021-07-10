@@ -15,7 +15,6 @@ import { COLORS } from "../../assets/colors/colors";
 
 import CardCarousel from "../components/Card/CardCarousel";
 import TransactionsHelper from "../components/Card/TransactionsHelper";
-import Tabbar from "../components/Tabbar";
 
 const DATA = [
   {
@@ -172,7 +171,7 @@ const Card = ({ navigation }) => {
           </View>
           <TouchableOpacity
             style={styles.previousPage}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("Home")}
           >
             <Icon name="chevron-left" size={32} color={COLORS.white} />
           </TouchableOpacity>
