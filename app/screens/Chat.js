@@ -261,7 +261,9 @@ const styles = StyleSheet.create({
     height: 30,
   },
   widgets: {
-    marginVertical: 24,
+    marginTop: 24,
+    marginBottom: 16,
+    height: 110,
   },
   messages: {
     backgroundColor: COLORS.grayPrimary,
