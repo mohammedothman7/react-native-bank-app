@@ -93,5 +93,12 @@ const styles = StyleSheet.create({
   },
   investments: {
     paddingHorizontal: 20,
+    shadowColor: "black",
+    shadowOffset: {
+      width: 4,
+      height: 4,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
 });

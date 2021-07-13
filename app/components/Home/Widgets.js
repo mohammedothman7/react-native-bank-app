@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import { COLORS } from "../../../assets/colors/colors";
@@ -25,6 +31,20 @@ const styles = StyleSheet.create({
     width: 100,
     marginLeft: 14,
     borderRadius: 25,
+    ...Platform.select({
+      ios: {
+        shadowColor: "black",
+        shadowOffset: {
+          width: 0,
+          height: 4,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
   icon: {
     marginLeft: 16,

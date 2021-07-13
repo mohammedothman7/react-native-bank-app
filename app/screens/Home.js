@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
                 <Icon
                   styles={styles.searchIcon}
                   name="magnify"
-                  size={28}
+                  size={24}
                   color={COLORS.white}
                 />
               </TouchableOpacity>
@@ -197,6 +197,13 @@ const styles = StyleSheet.create({
     height: 32,
     justifyContent: "center",
     alignItems: "center",
+    shadowColor: "black",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
   searchIcon: {
     resizeMode: "contain",
@@ -217,6 +224,6 @@ const styles = StyleSheet.create({
   },
   financeWidget: {
     marginTop: 14,
-    // maxHeight: 100,
+    paddingBottom: 10,
   },
 });

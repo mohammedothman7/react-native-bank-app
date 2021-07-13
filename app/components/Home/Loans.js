@@ -82,7 +82,7 @@ export default Loans;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 36,
+    marginTop: 16,
     paddingHorizontal: 20,
   },
   header: {
@@ -108,6 +108,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderRadius: 26,
     flexDirection: "row",
+    shadowColor: "black",
+    shadowOffset: {
+      width: 2,
+      height: 10,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
   icon: {
     width: 32,
