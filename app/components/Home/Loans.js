@@ -29,7 +29,7 @@ const Loans = () => {
       {showLoans && (
         <View>
           {/* Loans */}
-          <View style={styles.loans}>
+          <View style={[styles.loans, styles.shadow]}>
             <View style={styles.icon}>
               <Icon name="checkbook" size={24} color={COLORS.black} />
             </View>
@@ -44,33 +44,35 @@ const Loans = () => {
           </View>
 
           {showAd && (
-            <LinearGradient
-              style={styles.loans}
-              colors={["#eaeaea", COLORS.mint]}
-            >
-              <View style={[styles.icon, { backgroundColor: COLORS.black }]}>
-                <Icon name="lightning-bolt" size={24} color={COLORS.yellow} />
-              </View>
-              <View style={styles.info}>
-                <Text style={[styles.infoText, { color: COLORS.black }]}>
-                  Start investing now!
-                </Text>
-                <Text style={styles.date}>
-                  Protected savings and investment plans
-                </Text>
-                <TouchableOpacity
-                  style={styles.closeWrapper}
-                  onPress={() => setShowAd(false)}
-                >
-                  <Icon
-                    style={styles.close}
-                    name="close"
-                    size={24}
-                    color={COLORS.black}
-                  />
-                </TouchableOpacity>
-              </View>
-            </LinearGradient>
+            <View style={styles.shadow}>
+              <LinearGradient
+                style={styles.loans}
+                colors={["#eaeaea", COLORS.mint]}
+              >
+                <View style={[styles.icon, { backgroundColor: COLORS.black }]}>
+                  <Icon name="lightning-bolt" size={24} color={COLORS.yellow} />
+                </View>
+                <View style={styles.info}>
+                  <Text style={[styles.infoText, { color: COLORS.black }]}>
+                    Start investing now!
+                  </Text>
+                  <Text style={styles.date}>
+                    Protected savings and investment plans
+                  </Text>
+                  <TouchableOpacity
+                    style={styles.closeWrapper}
+                    onPress={() => setShowAd(false)}
+                  >
+                    <Icon
+                      style={styles.close}
+                      name="close"
+                      size={24}
+                      color={COLORS.black}
+                    />
+                  </TouchableOpacity>
+                </View>
+              </LinearGradient>
+            </View>
           )}
         </View>
       )}
@@ -108,10 +110,12 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderRadius: 26,
     flexDirection: "row",
+  },
+  shadow: {
     shadowColor: "black",
     shadowOffset: {
       width: 2,
-      height: 10,
+      height: 6,
     },
     shadowOpacity: 0.5,
     shadowRadius: 2,
