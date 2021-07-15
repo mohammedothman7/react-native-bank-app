@@ -13,6 +13,7 @@ import Card from "./app/screens/Card";
 import Budget from "./app/screens/Budget";
 import Chat from "./app/screens/Chat";
 import ChatView from "./app/screens/ChatView";
+import Transfer from "./app/screens/Transfer";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -115,10 +116,8 @@ export default function App({ navigation }) {
           children={bottomTabs}
           options={{ gestureEnabled: false }}
         />
-        {/* <Stack.Screen name="Card" component={Card} />
-        <Stack.Screen name="Budget" component={Budget} />
-        <Stack.Screen name="Chat" component={Chat} /> */}
         <Stack.Screen name="ChatView" component={ChatView} />
+        <Stack.Screen name="Transfer" component={Transfer} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>

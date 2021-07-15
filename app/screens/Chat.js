@@ -41,6 +41,7 @@ const FINANCE_WIDGETS = [
     title: "Transfer money",
     icon: "star-outline",
     color: COLORS.yellow,
+    navigate: "Transfer",
   },
   {
     title: "Lou Bonuses",
@@ -71,7 +72,7 @@ const MESSAGES = [
     resizeMode: "contain",
   },
   {
-    name: "Jeniffer",
+    name: "Jennifer",
     subtext: "Hi! I returned the debt.",
     date: "July 5",
     read: false,
@@ -167,7 +168,10 @@ const Chat = ({ navigation }) => {
           </View>
 
           {/* Widgets */}
-          <View style={styles.widgets}>
+          <TouchableOpacity
+            style={styles.widgets}
+            onPress={() => navigation.navigate("Transfer")}
+          >
             <FlatList
               style={styles.financeWidget}
               data={FINANCE_WIDGETS}
@@ -176,8 +180,9 @@ const Chat = ({ navigation }) => {
               keyExtractor={(item) => item.title}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingRight: 20 }}
+              extraData={[navigation]}
             />
-          </View>
+          </TouchableOpacity>
         </View>
         {/* Messages */}
         <ScrollView style={styles.messages}>
