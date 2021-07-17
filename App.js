@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { Context, Provider } from "./app/Context";
+import { Provider } from "./app/Context";
 import { COLORS } from "./assets/colors/colors";
 import Login from "./app/screens/Login";
 import Register from "./app/screens/Register";

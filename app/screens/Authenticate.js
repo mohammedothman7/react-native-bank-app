@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,17 +8,33 @@ import {
   TouchableOpacity,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as LocalAuthentication from "expo-local-authentication";
 
 import { Context } from "../Context";
 import { COLORS } from "../../assets/colors/colors";
 
 const Authenticate = ({ navigation }) => {
   const [authToken, setAuthToken] = useContext(Context);
+  const [isBiometricSupported, setIsBiometricSupported] = useState(false);
+
+  const handleBiometricAuth = async () => {
+    const compatible = await LocalAuthentication.hasHardwareAsync();
+    setIsBiometricSupported(true);
+
+    const savedBiometrics = await LocalAuthentication.isEnrolledAsync();
+
+    if (compatible && savedBiometrics) {
+      const status = await LocalAuthentication.authenticateAsync();
+      return status.success;
+    }
+
+    return false;
+  };
 
   useEffect(() => {
     const fetchToken = async () => {
       const value = await AsyncStorage.getItem("authToken");
-      if (value !== null) {
+      if (value !== null && (await handleBiometricAuth()) === true) {
         setAuthToken(value);
         navigation.navigate("Home");
       }
