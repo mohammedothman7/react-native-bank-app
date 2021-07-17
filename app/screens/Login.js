@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,7 @@ import {
   Image,
 } from "react-native";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { Context } from "../Context";
 import { COLORS } from "../../assets/colors/colors";
@@ -30,6 +31,7 @@ const Login = ({ navigation }) => {
           return;
         }
         setAuthToken(response.data.token);
+        AsyncStorage.setItem("authToken", response.data.token);
         navigation.navigate("Home");
       })
       .catch((error) => {
