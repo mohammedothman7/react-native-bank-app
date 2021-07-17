@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Image,
 } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import axios from "axios";
 
 import { Context } from "../Context";
@@ -49,6 +50,14 @@ const Register = ({ navigation }) => {
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      {/* Previous button */}
+      <TouchableOpacity
+        style={styles.previousPage}
+        onPress={() => navigation.goBack()}
+      >
+        <Icon name="chevron-left" size={32} color={COLORS.white} />
+      </TouchableOpacity>
+
       <View style={styles.spacing}>
         {/* Logo */}
         <Image
@@ -110,9 +119,9 @@ const Register = ({ navigation }) => {
           </View>
           <Text
             style={styles.subtext}
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.replace("Login")}
           >
-            Don't have an account? Create one now!
+            Have an account? Login now!
           </Text>
         </View>
 
@@ -128,7 +137,7 @@ const Register = ({ navigation }) => {
           onPress={handleSubmit}
         >
           <Text style={[styles.registerText, { color: COLORS.black }]}>
-            Login
+            Open account
           </Text>
         </TouchableOpacity>
       </View>
@@ -144,6 +153,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#1E2121",
     alignItems: "center",
     justifyContent: "center",
+  },
+  previousPage: {
+    backgroundColor: "#3E3E3E",
+    width: 32,
+    height: 32,
+    borderRadius: 20,
+    position: "absolute",
+    top: 60,
+    left: 20,
   },
   spacing: {
     paddingHorizontal: 20,
