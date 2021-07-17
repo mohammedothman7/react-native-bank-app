@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
+import { Context } from "../Context";
 import { COLORS } from "../../assets/colors/colors";
 
 import Cards from "../components/Home/Cards";
@@ -63,6 +64,13 @@ const FINANCE_WIDGETS = [
 ];
 
 const Home = ({ navigation }) => {
+  const [authToken, setAuthToken] = useContext(Context);
+
+  if (!authToken) {
+    navigation.navigate("Authenticate");
+    return null;
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
