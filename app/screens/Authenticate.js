@@ -25,7 +25,7 @@ const Authenticate = ({ navigation }) => {
 
     if (compatible && savedBiometrics) {
       const status = await LocalAuthentication.authenticateAsync();
-      return status;
+      return status.success;
     }
 
     return false;
@@ -34,7 +34,7 @@ const Authenticate = ({ navigation }) => {
   useEffect(() => {
     const fetchToken = async () => {
       const value = await AsyncStorage.getItem("authToken");
-      if (value !== null && handleBiometricAuth()) {
+      if (value !== null && (await handleBiometricAuth()) === true) {
         setAuthToken(value);
         navigation.navigate("Home");
       }
