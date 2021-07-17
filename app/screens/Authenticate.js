@@ -39,7 +39,7 @@ const Authenticate = ({ navigation }) => {
       <View style={styles.buttons}>
         <TouchableOpacity
           style={styles.login}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Login")}
         >
           <Text style={styles.loginText}>Log in</Text>
         </TouchableOpacity>
@@ -52,7 +52,7 @@ const Authenticate = ({ navigation }) => {
               backgroundColor: "gray",
             },
           ]}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Register")}
         >
           <Text style={[styles.loginText, { color: COLORS.white }]}>
             Open an account
