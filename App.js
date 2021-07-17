@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Context, Provider } from "./app/Context";
 import { COLORS } from "./assets/colors/colors";
 import Login from "./app/screens/Login";
+import Register from "./app/screens/Register";
 import Home from "./app/screens/Home";
 import Authenticate from "./app/screens/Authenticate";
 import Card from "./app/screens/Card";
@@ -114,6 +115,7 @@ export default function App() {
         >
           <Stack.Screen name="Authenticate" component={Authenticate} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Register" component={Register} />
           <Stack.Screen
             name="Home"
             children={bottomTabs}
