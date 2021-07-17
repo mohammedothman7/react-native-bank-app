@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,10 +7,25 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { Context } from "../Context";
 import { COLORS } from "../../assets/colors/colors";
 
 const Authenticate = ({ navigation }) => {
+  const [authToken, setAuthToken] = useContext(Context);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const value = await AsyncStorage.getItem("authToken");
+      if (value !== null) {
+        setAuthToken(value);
+        navigation.navigate("Home");
+      }
+    };
+    fetchToken();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
