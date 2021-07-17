@@ -36,6 +36,7 @@ const Register = ({ navigation }) => {
           return;
         }
         setAuthToken(response.data.token);
+        AsyncStorage.setItem("authToken", response.data.token);
         navigation.navigate("Home");
       })
       .catch((error) => {
