@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { Context } from "../Context";
 import { COLORS } from "../../assets/colors/colors";
@@ -91,7 +92,7 @@ const Register = ({ navigation }) => {
           <View style={styles.textInputWrapper}>
             <TextInput
               style={styles.textInput}
-              placeholder="Enter username"
+              placeholder="Enter email"
               placeholderTextColor={"gray"}
               onChangeText={(email) => setEmail(email)}
               value={email}
